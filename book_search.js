@@ -1,17 +1,3 @@
-/** 
- * RECOMMENDATION
- * 
- * To test your code, you should open "tester.html" in a web browser.
- * You can then use the "Developer Tools" to see the JavaScript console.
- * There, you will see the results unit test execution. You are welcome
- * to run the code any way you like, but this is similar to how we will
- * run your code submission.
- * 
- * The Developer Tools in Chrome are available under the "..." menu, 
- * futher hidden under the option "More Tools." In Firefox, they are 
- * under the hamburger (three horizontal lines), also hidden under "More Tools." 
- */
-
 /**
  * Searches for matches in scanned text.
  * @param {string} searchTerm - The word or term we're searching for. 
@@ -19,33 +5,22 @@
  * @returns {JSON} - Search results.
  * */ 
  function findSearchTermInBooks(searchTerm, scannedTextObj) {
-    /** You will need to implement your search and 
-     * return the appropriate object here. */
-
     var result = {
         "SearchTerm": searchTerm,
         "Results": []
     };
-
     if (!scannedTextObj || !scannedTextObj.length)
         return result;
 
-    // console.log("searchTerm --> ", searchTerm);
-    // console.log("scannedTextObj --> ", scannedTextObj);
-
     for (const scannedText of scannedTextObj){
-        if (!scannedText.Content || !scannedText.Content.length) { // book has no content
+        if (!scannedText.Content || !scannedText.Content.length) {
             console.log("Book with ISBN", scannedText.ISBN, "has no content.");
             continue;
         }
-        // console.log("book --> ", scannedText);
-        for (text of scannedText.Content){ // of when iterating over values in iterable objects
-            // console.log("scannedText.Content --> ", text);  // "in" when checking the existence of properties in objects or indices in arrays
+        for (text of scannedText.Content){
             const t = text.Text;
-
-            const r = new RegExp(searchTerm);   // excluding i to make it case-sensitive
+            const r = new RegExp(searchTerm);
             if (t.match(r)){
-                // console.log("Search term:", searchTerm, "Page", text.Page, "line", text.Line);
                 result.Results.push({
                     "ISBN": scannedText.ISBN,
                     "Page": text.Page,
@@ -94,7 +69,6 @@ const twentyLeaguesOut = {
         }
     ]
 }
-
 
 const twentyLeaguesOut3 = {
     "SearchTerm": "The",
