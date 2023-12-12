@@ -95,14 +95,6 @@ const bookWithNoContent = {
                                                       
  */
 
-/* We have provided two unit tests. They're really just `if` statements that 
- * output to the console. We've provided two tests as examples, and 
- * they should pass with a correct implementation of `findSearchTermInBooks`. 
- * 
- * Please add your unit tests below.
- * */
-
-/** We can check that, given a known input, we get a known output. */
 const test1result = findSearchTermInBooks("the", twentyLeaguesIn);
 if (JSON.stringify(twentyLeaguesOut) === JSON.stringify(test1result)) {
     console.log("PASS: Test 1");
@@ -132,7 +124,6 @@ if (JSON.stringify(twentyLeaguesOut3) === JSON.stringify(test3result)) {
     console.log("Received:", test3result);
 }
 
-
 // Negative tests: tests that do not return any matches due to having empty list of books
 const emptyInput = [];
 const emptyResult = findSearchTermInBooks("the", emptyInput);
@@ -143,7 +134,6 @@ if (JSON.stringify(emptyResult) === JSON.stringify({ SearchTerm: "the", Results:
   console.log("Expected:", { SearchTerm: "the", Results: [] });
   console.log("Received:", emptyResult);
 }
-
 
 // Negative tests: tests that do not return any matches due to being pageless
 const noContentResult = findSearchTermInBooks("the", [bookWithNoContent]);
